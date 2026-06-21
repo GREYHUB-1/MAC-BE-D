@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — ABDIRIZAK</title>
+<link rel="stylesheet" href="index.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Back to top">ABDIRIZAK</a>
+    <ul class="nav-links" role="list">
+      <li><a href="work.html">Work</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button class="nav-hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="navigation">
+  <a href="work.html" class="mobile-link">Work</a>
+  <a href="resume.html" class="mobile-link">Resume</a>
+  <a href="skills.html" class="mobile-link">Skills</a>
+  <a href="about.html" class="mobile-link">About</a>
+  <a href="contact.html" class="mobile-link">Contact</a>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="section-wrap gray" id="contact" style="min-height: 100vh; padding-top: 52px; display: flex; align-items: center;">
+  <section>
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <div class="section-label">Get in touch</div>
+        <h2>Let's create something meaningful.</h2>
+        <p>Currently accepting new projects and collaborations. Whether you need video production, multimedia design, or visual communications support  I'd love to hear from you.</p>
+
+        <div class="contact-direct">
+          <a href="mailto:sul.abdulsaq@email.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            sul.abdulsaaaaaaaaaq@email.com
+          </a>
+          <a href="tel:+252617377918" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            +252 617 377 918
+          </a>
+          <a href="#" class="contact-link">
+            <div class="contact-link-icon">📍</div>
+            Mogadishu, Somalia
+          </a>
+          <a href="https://www.youtube.com/watch?v=Lx_xMiWFzbo" target="_blank" rel="noopener" class="contact-link">
+            <div class="contact-link-icon">▶️</div>
+            YouTube Portfolio
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal reveal-delay-1">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Your name" autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" placeholder="your@email.com" autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <div class="form-submit">
+          <button class="btn-primary" onclick="handleSubmit()">
+            Send Message
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7H11M7 3L11 7L7 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <span class="form-status" id="formStatus">Message sent!</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>ABDIRIZAK</h3>
+        <p>Multimedia Specialist based in Mogadishu, creating visual experiences that communicate with clarity and impact.</p>
+        <div class="footer-location">Mogadishu, Somalia</div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:abdirizak@email.com">Email</a></li>
+          <li><a href="https://www.youtube.com/watch?v=Lx_xMiWFzbo" target="_blank" rel="noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ABDIRIZAK. All rights reserved.</p>
+      <div class="footer-social">
+        <a href="https://www.youtube.com/watch?v=Lx_xMiWFzbo" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit (demo)
+  function handleSubmit() {
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+    const status = document.getElementById('formStatus');
+    if (!name || !email || !message) {
+      status.textContent = 'Please fill in all required fields.';
+      status.style.color = '#ff3b30';
+      status.classList.add('visible');
+      return;
+    }
+    status.textContent = '✓ Message sent successfully!';
+    status.style.color = '#34c759';
+    status.classList.add('visible');
+    setTimeout(() => status.classList.remove('visible'), 4000);
+  }
+</script>
+</body>
+</html>
